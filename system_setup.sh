@@ -55,9 +55,9 @@ exit
 EOF
 
 #Setting admin user
-/usr/local/sbin/gvmd --create-user=admin --password='admin'
+sudo /usr/local/sbin/gvmd --create-user=admin --password='admin'
 
-/usr/local/sbin/gvmd --modify-setting 78eceaec-3385-11ea-b237-28d24461215b --value "$(/usr/local/sbin/gvmd --get-users --verbose | grep admin | awk '{print $2}')"
+sudo /usr/local/sbin/gvmd --modify-setting 78eceaec-3385-11ea-b237-28d24461215b --value "$(/usr/local/sbin/gvmd --get-users --verbose | grep admin | awk '{print $2}')"
 
 #Setting up Services for Systemd
 cat << EOF > $BUILD_DIR/ospd-openvas.service
