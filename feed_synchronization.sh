@@ -16,7 +16,3 @@ sudo systemctl enable notus-scanner
 sudo systemctl enable ospd-openvas
 sudo systemctl enable gvmd
 sudo systemctl enable gsad
-sudo systemctl status notus-scanner
-sudo systemctl status ospd-openvas
-sudo systemctl status gvmd
-sudo systemctl status gsad
