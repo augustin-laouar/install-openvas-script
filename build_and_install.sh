@@ -73,7 +73,7 @@ cmake $SOURCE_DIR/pg-gvm-$PG_GVM_VERSION -DCMAKE_BUILD_TYPE=Release
 make -j$(nproc)
 mkdir -p $INSTALL_DIR/pg-gvm
 make DESTDIR=$INSTALL_DIR/pg-gvm install
-sudo cp -rv $INSTALL_DIR/pg-gvm/* /*
+sudo cp -rv $INSTALL_DIR/pg-gvm/* /
 
 #GSA 
 export GSA_VERSION=22.7.1
@@ -197,6 +197,7 @@ else
     echo "Invalid GPG signature. Exit."
     exit 1
 fi
+tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/notus-scanner-$NOTUS_VERSION.tar.gz
 cd $SOURCE_DIR/notus-scanner-$NOTUS_VERSION
 mkdir -p $INSTALL_DIR/notus-scanner
 python3 -m pip install --root=$INSTALL_DIR/notus-scanner --no-warn-script-location .

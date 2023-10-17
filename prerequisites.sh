@@ -4,7 +4,7 @@
 #PREREQUISITES
 sudo useradd -r -M -U -G sudo -s /usr/sbin/nologin gvm
 sudo usermod -aG gvm $USER
-su $USER
+sudo su $USER
 export INSTALL_PREFIX=/usr/local
 export PATH=$PATH:$INSTALL_PREFIX/sbin
 

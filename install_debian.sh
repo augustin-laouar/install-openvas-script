@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bash "./prerequisites.sh"
-bash "./build_and_install.sh"
-bash "./system_setup.sh"
-bash "./feed_synchronization.sh"
+source "./prerequisites.sh"
+source "./build_and_install.sh"
+source "./system_setup.sh"
+source "./feed_synchronization.sh"
