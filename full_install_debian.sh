@@ -298,7 +298,7 @@ sudo /usr/local/sbin/gvmd --create-user=admin --password='admin'
 sudo /usr/local/sbin/gvmd --modify-setting 78eceaec-3385-11ea-b237-28d24461215b --value "$(/usr/local/sbin/gvmd --get-users --verbose | grep admin | awk '{print $2}')"
 
 #Setting up Services for Systemd
-cat << EOF > $BUILD_DIR/ospd-openvas.service
+sudo cat << EOF > $BUILD_DIR/ospd-openvas.service
 [Unit]
 Description=OSPd Wrapper for the OpenVAS Scanner (ospd-openvas)
 Documentation=man:ospd-openvas(8) man:openvas(8)
@@ -324,7 +324,7 @@ EOF
 
 sudo cp -v $BUILD_DIR/ospd-openvas.service /etc/systemd/system/
 
-cat << EOF > $BUILD_DIR/notus-scanner.service
+sudo cat << EOF > $BUILD_DIR/notus-scanner.service
 [Unit]
 Description=Notus Scanner
 Documentation=https://github.com/greenbone/notus-scanner
@@ -349,7 +349,7 @@ EOF
 
 sudo cp -v $BUILD_DIR/notus-scanner.service /etc/systemd/system/
 
-cat << EOF > $BUILD_DIR/gvmd.service
+sudo cat << EOF > $BUILD_DIR/gvmd.service
 [Unit]
 Description=Greenbone Vulnerability Manager daemon (gvmd)
 After=network.target networking.service postgresql.service ospd-openvas.service
@@ -374,7 +374,7 @@ EOF
 
 sudo cp -v $BUILD_DIR/gvmd.service /etc/systemd/system/
 
-cat << EOF > $BUILD_DIR/gsad.service
+sudo cat << EOF > $BUILD_DIR/gsad.service
 [Unit]
 Description=Greenbone Security Assistant daemon (gsad)
 Documentation=man:gsad(8) https://www.greenbone.net
